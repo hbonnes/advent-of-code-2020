@@ -5,12 +5,10 @@ def star_one(input_path='1.txt'):
     num_one = None
     num_two = None
     for i in range(len(numbers)):
-        for j in range(len(numbers) - i - 1):
-            # Removes already done numbers
-            j_index = j + i + 1
-            if numbers[i] + numbers[j_index] == 2020:
+        for j in range(i+1, len(numbers)):
+            if numbers[i] + numbers[j] == 2020:
                 num_one = numbers[i]
-                num_two = numbers[j_index]
+                num_two = numbers[j]
                 break
 
     print(f'{num_one} + {num_two} = 2020')
@@ -25,15 +23,12 @@ def star_two(input_path='1.txt'):
     num_two = None
     num_three = None
     for i in range(len(numbers)):
-        for j in range(len(numbers) - i - 1):
-            j_index = j + i + 1
-            for k in range(len(numbers) - j_index - 1):
-                k_index = k + j_index + 1
-
-                if numbers[i] + numbers[j_index] + numbers[k_index] == 2020:
+        for j in range(i+1, len(numbers)):
+            for k in range(j+1, len(numbers)):
+                if numbers[i] + numbers[j] + numbers[k] == 2020:
                     num_one = numbers[i]
-                    num_two = numbers[j_index]
-                    num_three = numbers[k_index]
+                    num_two = numbers[j]
+                    num_three = numbers[k]
                     break
 
     print(f'{num_one} + {num_two} + {num_three} = 2020')
